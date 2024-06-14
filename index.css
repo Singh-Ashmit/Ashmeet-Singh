@@ -285,7 +285,7 @@ h6 {
   font-size: large;
   font-style:oblique;
   font-weight: bolder;
-  top: 100px;
+  top: 20px;
 }
 
 @media (max-width: 991px) {
@@ -343,27 +343,27 @@ h6 {
 }
 
 .menu-toggler:checked~ul .menu-item:nth-child(1) {
-  transform: rotate(0deg) translate(-170px);
+  transform: rotate(0deg) translate(-120px);
 }
 
 .menu-toggler:checked~ul .menu-item:nth-child(2) {
-  transform: rotate(60deg) translateX(-150px);
+  transform: rotate(60deg) translateX(-100px);
 }
 
 .menu-toggler:checked~ul .menu-item:nth-child(3) {
-  transform: rotate(120deg) translateX(-150px);
+  transform: rotate(120deg) translateX(-100px);
 }
 
 .menu-toggler:checked~ul .menu-item:nth-child(4) {
-  transform: rotate(180deg) translateX(-150px);
+  transform: rotate(180deg) translateX(-100px);
 }
 
 .menu-toggler:checked~ul .menu-item:nth-child(5) {
-  transform: rotate(240deg) translateX(-150px);
+  transform: rotate(240deg) translateX(-100px);
 }
 
 .menu-toggler:checked~ul .menu-item:nth-child(6) {
-  transform: rotate(300deg) translateX(-150px);
+  transform: rotate(300deg) translateX(-100px);
 }
 
 .menu-toggler:checked~ul .menu-item a {
