@@ -1,0 +1,1094 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Ashmeet Singh</title>
+  <link href="index.css" rel="stylesheet">
+  <link rel="icon" href="" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/glightbox/1.2.2/css/glightbox.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/glightbox/1.2.2/js/glightbox.min.js"></script>
+
+<!-- Isotope -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/glightbox/1.2.2/css/glightbox.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:300,400,600i&display=swap" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <!-- Boxicons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.0.7/css/boxicons.min.css" rel="stylesheet">
+
+    <!-- Glightbox -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/glightbox/1.0.8/css/glightbox.min.css" rel="stylesheet">
+
+    <!-- Remix Icon -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- Swiper -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/css/swiper.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:300,400,600i&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:300,400,600i&display=swap" rel="stylesheet">
+  <style>
+  .infocardContainer #main, .infocardContainer #main img{
+  --background-color: red;
+  height: 200px;
+  width: 200px;
+  padding-right: 10px;
+  border-radius: 100%;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+.infocardContainer #main img{
+
+  transition: none;
+  display: float;
+  position: relative;
+  border: 10px solid white;
+  margin: 0 0 0 0; padding: 0 0 0 0;
+}
+.infocardContainer #textbois {
+  position: relative;
+}
+ .big-bubble {
+            width: 20px; /* Adjusted size */
+            height: 20px; /* Adjusted size */
+            background-color: rgba(255, 0, 0, 0.7); /* Red color for big bubble */
+            border-radius: 50%;
+            position: absolute;
+            pointer-events: none;
+            transition: transform 0.2s ease-out;
+            animation: boil 1s ease-in-out infinite alternate;
+            z-index: 999; /* Ensure the big bubble is on top */
+        }
+
+        .small-bubble {
+            background-color: rgba(0, 150, 255, 0.7); /* Blue color for small bubbles */
+            border-radius: 50%;
+            position: absolute;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+            animation: boil 1s ease-in-out infinite alternate;
+            z-index: 998; /* Ensure the small bubbles are on top of other content */
+        }
+
+        .small-bubble.small {
+            width: 5px;
+            height: 5px;
+        }
+
+        .small-bubble.medium {
+            width: 7px;
+            height: 7px;
+        }
+
+        .small-bubble.large {
+            width: 10px;
+            height: 10px;
+        }
+
+        @keyframes boil {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+  <div id="big-bubble" class="big-bubble" style="overflow:hidden;"></div>
+    <script>
+        const bigBubble = document.getElementById('big-bubble');
+        const smallBubbles = [];
+        const numberOfSmallBubbles = 20;
+        let isMoving = false;
+
+        // Create small bubbles and append to body
+        for (let i = 0; i < numberOfSmallBubbles; i++) {
+            const smallBubble = document.createElement('div');
+            smallBubble.className = 'small-bubble';
+            // Randomly assign size class
+            const sizeClass = getRandomSizeClass();
+            smallBubble.classList.add(sizeClass);
+            document.body.appendChild(smallBubble);
+            smallBubbles.push(smallBubble);
+        }
+
+        function getRandomSizeClass() {
+            const randomNumber = Math.random();
+            if (randomNumber < 0.3) {
+                return 'small'; // 30% chance of small
+            } else if (randomNumber < 0.6) {
+                return 'medium'; // 30% chance of medium
+            } else {
+                return 'large'; // 40% chance of large
+            }
+        }
+
+        function changeBubbleColor() {
+            // Change color of big bubble
+            const newBigColor = getRandomBigColor();
+            bigBubble.style.backgroundColor = newBigColor;
+
+            // Change color of small bubbles
+            const newSmallColor = getRandomSmallColor();
+            smallBubbles.forEach(smallBubble => {
+                smallBubble.style.backgroundColor = newSmallColor;
+            });
+        }
+
+        function getRandomBigColor() {
+            const red = Math.floor(Math.random() * 256);
+            const green = Math.floor(Math.random() * 256);
+            const blue = Math.floor(Math.random() * 256);
+            return `rgba(${red}, ${green}, ${blue}, 0.8)`;
+        }
+
+        function getRandomSmallColor() {
+            const red = Math.floor(Math.random() * 256);
+            const green = Math.floor(Math.random() * 256);
+            const blue = Math.floor(Math.random() * 256);
+            return `rgba(${red}, ${green}, ${blue}, 0.8)`;
+        }
+
+        document.addEventListener('mousemove', function(e) {
+            isMoving = true;
+            // Position the big bubble at the cursor
+            bigBubble.style.left = e.pageX - bigBubble.offsetWidth / 2 + 'px';
+            bigBubble.style.top = e.pageY - bigBubble.offsetHeight / 2 + 'px';
+            updateBubblePositions(e.pageX, e.pageY);
+        });
+
+        document.addEventListener('mouseout', function() {
+            isMoving = false;
+            resetSmallBubbles();
+        });
+
+        document.addEventListener('click', function(e) {
+            changeBubbleColor();
+        });
+
+        function updateBubblePositions(cursorX, cursorY) {
+            // Position small bubbles near the cursor
+            smallBubbles.forEach((smallBubble, index) => {
+                // Randomize distance from the cursor
+                const distance = Math.random() * 20 + 10; // Random distance from 10 to 40 pixels
+
+                // Randomize angle around the cursor
+                const angle = Math.random() * 2 * Math.PI;
+
+                // Calculate position offsets
+                const offsetX = distance * Math.cos(angle);
+                const offsetY = distance * Math.sin(angle);
+
+                // Position small bubble near the cursor
+                smallBubble.style.left = cursorX + offsetX - smallBubble.offsetWidth / 2 + 'px';
+                smallBubble.style.top = cursorY + offsetY - smallBubble.offsetHeight / 2 + 'px';
+                smallBubble.style.opacity = 1;
+            });
+        }
+
+        function resetSmallBubbles() {
+            smallBubbles.forEach(smallBubble => {
+                smallBubble.style.opacity = 0;
+            });
+        }
+
+    </script>
+  <header id="header">
+    <div class="container">
+    <div class="infocardContainer">
+    <div id="main">
+      <img src="https://avatars.githubusercontent.com/u/91828139?v=4"></img>
+    </div>
+  </div>
+
+
+      <h1><a href="">Ashmeet Singh</a></h1>
+      <h2>I'm a passionate <span>Data Analyst</span> from Indore <span>IND</span></h2>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link active" href="#header">Home</a></li>
+          <li><a class="nav-link" href="#about">About</a></li>
+          <li><a class="nav-link" href="#resume">Resume</a></li>
+          <li><a class="nav-link" href="#services">Projects</a></li>
+          <li><a class="nav-link" href="#portfolio">Portfolio</a></li>
+        </ul>
+      
+      </nav><!-- .navbar -->
+       <script src="first.js"></script>
+      <div class="social-links">
+        <a href="+91 8349366631" class="twitter"><i class="bi bi-phone"></i></a>
+        <a href="mailto:gaminggods0123@gmail.com" class="facebook"><i class="bi bi-envelope-fill"></i></a>
+        <a href="https://github.com/ashmeet07" class="instagram"><i class="bi bi-github"></i></i></a>
+        <a href="https://in.linkedin.com/in/ashmeet-singh-192610225?trk=profile-badge" class="linkedin"><i class="bi bi-linkedin"></i></a>
+        <a href="https://public.tableau.com/app/profile/ashmeet5175/vizzes" class="linkedin"> <i class="fas fa-chart-pie"></i></a>
+      </div>
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= About Section ======= -->
+  <section id="about" class="about">
+
+    <!-- ======= About Me ======= -->
+    <div class="about-me container">
+
+      <div class="section-title">
+      <p>ABOUT</p>
+        <h2></h2>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4" data-aos="fade-right">
+          <img src="https://media.licdn.com/dms/image/D5622AQEv37ct3kjSew/feedshare-shrink_800/0/1695826299448?e=2147483647&v=beta&t=PK2aELggQ5823YD55zLmzA-8Ep7aL6D5OY23fFSMfz0" class="img-fluid" alt="">
+        </div>
+        <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
+          <h3>Summary</h3>
+          <p class="fst-italic">
+            Motivated and dedicated Data Analyst enthusiast with several internships experience identifying the efficiencies and problem areas within data streams while communicating needs for projects. Adept at receiving and monitoring data from multiple data streams Including SQL, Access and Excel data sources ability to synthesise quantitative information and interact effectively with colleagues and clients.
+          </p>
+          <div class="row">
+            <div class="col-lg-6">
+              <ul>
+                <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+91 8349366631</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>Indore, INDIA</span></li>
+              </ul>
+            </div>
+            <div class="col-lg-6">
+              <ul>
+                <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Master of Computer Application</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>@Email:</strong> <span>gaminggods0123@gmail.com</span></li>
+              </ul>
+            </div>
+          </div>
+          <p>
+            "I love gardening and playing with my plants. I also enjoy playing volleyball and cricket, and I have a blast with my consoles, especially action games."
+          </p>
+        </div>
+      </div>
+
+    </div><!-- End About Me -->
+
+    <!-- ======= Counts ======= -->
+    <div class="counts container">
+
+      <div class="row">
+        <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+        </div>
+        <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
+          <div class="count-box">
+            <i class="bi bi-journal-richtext"></i>
+            <span data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="1" class="purecounter"></span>5+
+            <p>Projects</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+          <div class="count-box">
+            <i class="bi bi-headset"></i>
+            <span data-purecounter-start="0" data-purecounter-end="24" data-purecounter-duration="1" class="purecounter"></span>24x7
+            <p>Hours Of Support</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+          <div class="count-box">
+            <i class="bi bi-award"></i>
+            <span data-purecounter-start="0" data-purecounter-end="50" data-purecounter-duration="1" class="purecounter"></span>50+
+            <p>Awards</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div><!-- End Counts -->
+
+    <!-- ======= Skills  ======= -->
+    <div class="skills container">
+
+      <div class="section-title">
+      <p>Skills</p>
+        <h2></h2>
+      </div>
+
+      <div class="row skills-content">
+
+        <div class="col-lg-6">
+
+          <div class="progress">
+            <span class="skill">Excel<i class="val"></i></span>
+            <div class="progress-bar-wrap">
+              <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+
+          <div class="progress">
+            <span class="skill">Anaconda<i class="val"></i></span>
+            <div class="progress-bar-wrap">
+              <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+
+          <div class="progress">
+            <span class="skill">LaTeX <i class="val"></i></span>
+            <div class="progress-bar-wrap">
+              <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+          <div class="progress">
+            <span class="skill">OS (Windows/Linux/MacOs/Android)<i class="val"></i></span>
+            <div class="progress-bar-wrap">
+              <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+
+          <div class="progress">
+            <span class="skill">Canva<i class="val"></i></span>
+            <div class="progress-bar-wrap">
+              <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col-lg-6">
+          <div class="progress">
+            <span class="skill">Tableau<i class="val"></i></span>
+            <div class="progress-bar-wrap">
+              <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+          <div class="progress">
+            <span class="skill">Android Studio<i class="val"></i></span>
+            <div class="progress-bar-wrap">
+              <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+          <div class="progress">
+            <span class="skill">Scala<i class="val"></i></span>
+            <div class="progress-bar-wrap">
+              <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+          <div class="progress">
+            <span class="skill">Apache Spark<i class="val"></i></span>
+            <div class="progress-bar-wrap">
+              <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+          <div class="progress">
+            <span class="skill">Hadoop<i class="val"></i></span>
+            <div class="progress-bar-wrap">
+              <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div><!-- End Skills -->
+    <!-- ======= Testimonials ======= -->
+    <div class="testimonials container">
+
+      <div class="section-title">
+        <p>Testimonials</p>
+        <h2></h2>
+      </div>
+
+      <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+        <div class="swiper-wrapper">
+
+          <div class="swiper-slide">
+            <div class="testimonial-item">
+              <p>
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                I'm delighted to share my experience working on our website project. It has been an incredible journey, culminating in a website that beautifully showcases our dedication, creativity, and expertise.
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+              <img src="https://media.licdn.com/dms/image/D4D03AQHtJH_7V6j6jQ/profile-displayphoto-shrink_200_200/0/1696042681563?e=2147483647&v=beta&t=6027KMt3qRhdxJ_TKOmZH20cBnb0YtO5UN3xpLsr09s" class="testimonial-img" alt="">
+              <h3>Gajal Rathore</h3>
+              <h4>Project Partner</h4>
+            </div>
+          </div><!-- End testimonial item -->
+
+          <div class="swiper-slide">
+            <div class="testimonial-item">
+              <p>
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                It was a pleasure mentoring you during your training in Market Research and Analytics.
+                Your contributions significantly added value to our projects, and your teamwork and communication skills were exemplary
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+              <img src="https://media.licdn.com/dms/image/D4D03AQEBtG91p7X4Kw/profile-displayphoto-shrink_100_100/0/1685048381905?e=1723680000&v=beta&t=8lDFEHzs2wtorZTFrP8T4mHA7vV62bqs5Yk6lRxpQJY" class="testimonial-img" alt="">
+              <h3>Akansha Verma</h3>
+              <h4>Internship Mentor</h4>
+            </div>
+          </div><!-- End testimonial item -->
+
+          <div class="swiper-slide">
+            <div class="testimonial-item">
+              <p>
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+              <img src="https://media.licdn.com/dms/image/D4D03AQHGwq-WP2fyDA/profile-displayphoto-shrink_100_100/0/1682966374137?e=1723680000&v=beta&t=fNLJ-4ZL2CdrIEcA6rdMv2cakpC4yn8fe8iFYGH25ts" class="testimonial-img" alt="">
+              <h3>Esha Sinha</h3>
+              <h4>Internship Partner</h4>
+            </div>
+          </div><!-- End testimonial item -->
+
+          <div class="swiper-slide">
+            <div class="testimonial-item">
+              <p>
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                It was a great experience working with Ashmeet during the internship period.I am happy to have had a colleague like Ashmeet, whose dedication and teamwork significantly contributed to the success of our work.
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+              <img src="https://media.licdn.com/dms/image/D4D03AQEZWS5D6pWWTg/profile-displayphoto-shrink_200_200/0/1696832747757?e=2147483647&v=beta&t=oJh6uMDBC2lzdjJLMj0ZbMBYTUtqdwl8vNlJIhoHqB8" class="testimonial-img" alt="">
+              <h3>Zubair Qurashi</h3>
+              <h4>Internship Partner</h4>
+            </div>
+          </div><!-- End testimonial item -->
+
+          <div class="swiper-slide">
+            <div class="testimonial-item">
+              <p>
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                It was a pleasure to mentor you during your time in our Research and Development department. You consistently demonstrated a strong aptitude for learning, a keen analytical mind, and a dedication to innovation.
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+              <img src="https://media.licdn.com/dms/image/C4D03AQHwQsM7lWmTng/profile-displayphoto-shrink_100_100/0/1661075134680?e=1723680000&v=beta&t=0Gd4hohe5QAK_UsbqNw9ZZt98OF6dAK0DoE_2zlBQKI" class="testimonial-img" alt="">
+              <h3>Harshdeep Kaur</h3>
+              <h4>Internship Mentor</h4>
+            </div>
+          </div><!-- End testimonial item -->
+
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+      <div class="owl-carousel testimonials-carousel">
+
+      </div>
+
+    </div><!-- End Testimonials  -->
+        <!-- ======= Interests ======= -->
+    <div class="interests container">
+
+      <div class="section-title">
+      <p>Interests</p>
+        <h2></h2>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-3 col-md-4">
+          <div class="icon-box">
+            <i class="fas fa-seedling" style="color: #e80368;"></i>
+
+            <h3>Gardening</h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
+          <div class="icon-box">
+            <i class="ri-bar-chart-box-line" style="color: #5578ff;"></i>
+            <h3>Learning More</h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
+          <div class="icon-box">
+            <i class="fas fa-football-ball" style="color: #e80368;"></i>
+
+            <h3>Sport's</h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 mt-4 mt-lg-0">
+          <div class="icon-box">
+            <i class="ri-paint-brush-line" style="color: #e361ff;"></i>
+            <h3>Painting</h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 mt-4">
+          <div class="icon-box">
+            <i class="ri-file-list-3-line" style="color: #11dbcf;"></i>
+            <h3>Doing Research</h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 mt-4">
+          <div class="icon-box">
+            <i class="ri-disc-line" style="color: #b20969;"></i>
+            <h3>Listening Music</h3>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- End Interests -->
+
+  </section><!-- End About Section -->
+
+  <!-- ======= Resume Section ======= -->
+  <section id="resume" class="resume">
+    <div class="container">
+        <div class="section-title">
+            <h2>Ashmeet Resume</h2>
+        </div>
+        <div id="resumeContainer" class="resume-container">
+            <iframe src="https://moccasin-merilyn-74.tiiny.site/" width="100%" height="600px"></iframe>
+        </div>
+    </div>
+  </section><!-- End Resume Section -->
+
+  <!-- ======= Services Section ======= -->
+  <section id="services" class="services">
+    <div class="container">
+
+      <div class="section-title">
+      <p>Graduation Projects</p>
+        <h2></h2>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+          <div class="icon-box">
+            <div class="icon"><i class="bi bi-person-circle employee-icon"></i></div>
+              <h4>Employee Task Management System</h4>
+              <p><strong>Technology:</strong> Django, Python, Encryption Standards, CRUD, etc.</p>
+              <p><strong>Features:</strong>  Admin Panel, Employee Panel, Analysis Dashboard</p><br>
+              <a href="#" class="project">Project Link</a>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
+          <div class="icon-box">
+            <div class="icon">
+              <i class="bx bx-file"></i>
+            </div>
+            <h4>Toekomst.Piano</h4>
+            <h5>(Future Plan)</h5>
+            <h6>Abroad Consulting Web Application</h6>
+            <p><strong>Technology:</strong> Django, Python, Hash Function, MySQL, Email Registration using Universal Code Generator.</p><br>
+            <a href="#" class="project">Project Link</a>
+            <p></p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
+          <div class="icon-box">
+            <div class="icon">
+              <i class="bx bx-calculator"></i>
+            </div>
+            <h4>Ash Calculator</h4>
+            <h5>Comprehensive Calculation Tool in C++</h5>
+            <p><strong>Technologies Used:</strong> C++</p>
+            <p><strong>Capabilities:</strong> Perform a wide range of calculations including Mean, Median, Mode, Simple Interest, Compound Interest, and more, totaling over 18 distinct operations.</p>
+            <a href="https://github.com/ashmeet07/Ash_Project" class="project">Project Link</a>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
+          <div class="icon-box">
+            <div class="icon">
+              <i class="bx bx-laptop"></i>
+            </div>
+            <h4>Graphical User Interface</h4>
+            <h5>Technologies: Python, Tkinter, Pandas</h5>
+            <p>This project provides a graphical user interface for checking financial documents, utilizing Python, Tkinter for the GUI, and Pandas for data manipulation and analysis.</p>
+            <a href="#" class="project">Project Link</a>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
+          <div class="icon-box">
+            <div class="icon"><i class="bx bx-bar-chart-alt"></i></div>
+            <h4>Property Predictor</h4>
+            <h5>Using Python, Django, ML.</h5>
+            <p>Predict property according to the given requirement by the client.</p><br>
+            <a href="#" class="project">Project Link</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section><!-- End Services Section -->
+
+  <!-- ======= Portfolio Section ======= -->
+  <section id="portfolio" class="portfolio">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Portfolio</h2>
+        <p>Glimpse</p>
+      </div>
+
+      <div class="row portfolio-container">
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+          <div class="portfolio-wrap">
+            <img src="https://media.licdn.com/dms/image/D4D22AQHbAuW0v3LwnQ/feedshare-shrink_800/0/1684737404794?e=1721260800&v=beta&t=CtfMy60e7zNG28EvOB8nWysm3-6CnYWinrSgSJRuzLY" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Anaxee Interview Dashboard</h4>
+              <p>Tableau Dashboard</p>
+              <div class="portfolio-links">
+                <a href="https://public.tableau.com/app/profile/ashmeet5175/vizzes" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-wrap">
+            <img src="https://media.licdn.com/dms/image/C4D22AQH1f1ODhd30_Q/feedshare-shrink_480/0/1675766733219?e=1721260800&v=beta&t=6uTIas-P7j0cEiWQhjDgv8dU2a5prIEBywQV5ycsn2s" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Dashboard 2</h4>
+              <div class="portfolio-links">
+                <a href="https://public.tableau.com/app/profile/ashmeet5175/vizzes" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+          <div class="portfolio-wrap">
+            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7204012586630045696?compact=1" height="399" width="710" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+            <div class="portfolio-info">
+              <h4></h4>
+              <div class="portfolio-links">
+                <a href="https://www.linkedin.com/posts/gajal-rathore-93392026a_taskmanagement-productivity-employeeengagement-ugcPost-7204012586630045696-hVAN?utm_source=share&utm_medium=member_desktop" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+          <div class="portfolio-wrap">
+          <iframe src="https://media.licdn.com/dms/image/D5622AQG5l9Y7KOBv1Q/feedshare-shrink_800/0/1704875411526?e=1721260800&v=beta&t=5ozPOkC430Zw4OGg6y1oQpf7QXiSx4dyCTApgftEeFo" height="399" width="710" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+            <div class="portfolio-info">
+              <h4>ATS friendly resume using LaTeX</h4>
+              <p>Card</p>
+              <div class="portfolio-links">
+                <a href="https://lnkd.in/g--zsCsQ" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+          <div class="portfolio-wrap">
+            <img src="https://media.licdn.com/dms/image/C4D22AQEI5HUnonTZvw/feedshare-shrink_800/0/1679317022548?e=1721260800&v=beta&t=qSMayWjY8HTIW9OuhF72X6lSm5yr71gf2L1th-QQ2QU" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Typing Milestone</h4>
+              <div class="portfolio-links">
+                <a href="https://www.linkedin.com/posts/ashmeet-singh-192610225_my-typing-memories-it-helps-me-to-activity-7043566116161359872-iXyc?utm_source=share&utm_medium=member_desktop" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+          <div class="portfolio-wrap">
+            <img src="https://media.licdn.com/dms/image/C4D22AQFsQwCYAQd8NQ/feedshare-shrink_2048_1536/0/1669106532461?e=1721260800&v=beta&t=zobayahHgTjzHej1ajOjro7deSRZcDuZRXlqWT0jNY8" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Graduation Project Milestone</h4>
+              <div class="portfolio-links">
+                <a href="https://github.com/ashmeet07/Searchify_Concept" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+          <div class="portfolio-wrap">
+            <img src="https://private-user-images.githubusercontent.com/91828139/303563482-f0ac661e-d1e7-47bc-8a78-d965b3268b81.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTgzNDYwOTUsIm5iZiI6MTcxODM0NTc5NSwicGF0aCI6Ii85MTgyODEzOS8zMDM1NjM0ODItZjBhYzY2MWUtZDFlNy00N2JjLThhNzgtZDk2NWIzMjY4YjgxLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA2MTQlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwNjE0VDA2MTYzNVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWQyYzYzZmZhZDdjZGVjY2Y1NDY5YzU1YjA0N2YxMTVmNWU4YmE1MTgwZjIxNGVlNzc1NDg2MzYzMWNjYjdlODMmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.PhCCwz2eKnlU5wEm7do6P67AYwpF2u4LrBC3HP7sQ2c" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <div class="portfolio-links">
+                <a href="https://github.com/ashmeet07/Ash_Project" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+          <div class="portfolio-wrap">
+            <img src="assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Card 3</h4>
+              <p>Card</p>
+              <div class="portfolio-links">
+                <a href="assets/img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 3"><i class="bx bx-plus"></i></a>
+                <a href="portfolio-details.html" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+          <div class="portfolio-wrap">
+            <img src="assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Web 3</h4>
+              <p>Web</p>
+              <div class="portfolio-links">
+                <a href="assets/img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
+                <a href="portfolio-details.html" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section><!-- End Portfolio Section -->
+
+  <!-- ======= Contact Section ======= -->
+  <section id="contact" class="contact">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Contact</h2>
+        <p>Contact Me</p>
+      </div>
+
+      <div class="row mt-2">
+
+        <div class="col-md-6 d-flex align-items-stretch">
+          <div class="info-box">
+            <i class="bx bx-map"></i>
+            <h3>My Address</h3>
+            <p>A108 Adam Street, New York, NY 535022</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 mt-4 mt-md-0 d-flex align-items-stretch">
+          <div class="info-box">
+            <i class="bx bx-share-alt"></i>
+            <h3>Social Profiles</h3>
+            <div class="social-links">
+              <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="google-plus"><i class="bi bi-skype"></i></a>
+              <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 mt-4 d-flex align-items-stretch">
+          <div class="info-box">
+            <i class="bx bx-envelope"></i>
+            <h3>Email Me</h3>
+            <p>contact@example.com</p>
+          </div>
+        </div>
+        <div class="col-md-6 mt-4 d-flex align-items-stretch">
+          <div class="info-box">
+            <i class="bx bx-phone-call"></i>
+            <h3>Call Me</h3>
+            <p>+1 5589 55488 55</p>
+          </div>
+        </div>
+      </div>
+
+      <form action="forms/contact.php" method="post" role="form" class="php-email-form mt-4">
+        <div class="row">
+          <div class="col-md-6 form-group">
+            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+          </div>
+          <div class="col-md-6 form-group mt-3 mt-md-0">
+            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+          </div>
+        </div>
+        <div class="form-group mt-3">
+          <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+        </div>
+        <div class="form-group mt-3">
+          <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+        </div>
+        <div class="my-3">
+          <div class="loading">Loading</div>
+          <div class="error-message"></div>
+          <div class="sent-message">Your message has been sent. Thank you!</div>
+        </div>
+        <div class="text-center"><button type="submit">Send Message</button></div>
+      </form>
+
+    </div>
+  </section><!-- End Contact Section -->
+
+  <!-- Vendor JS Files -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/purecounter/1.0.0/purecounter_vanilla.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@srexi/purecounterjs@1.1.5/dist/purecounter_vanilla.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/glightbox/1.0.8/js/glightbox.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/glightbox/1.2.2/js/glightbox.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/isotope-layout/3.0.6/isotope.pkgd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/js/swiper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/noframework.waypoints.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+
+  <!-- Template Main JS File -->
+<script >
+(function() {
+  "use strict";
+
+  /**
+   * Easy selector helper function
+   */
+  const select = (el, all = false) => {
+    el = el.trim()
+    if (all) {
+      return [...document.querySelectorAll(el)]
+    } else {
+      return document.querySelector(el)
+    }
+  }
+
+  /**
+   * Easy event listener function
+   */
+  const on = (type, el, listener, all = false) => {
+    let selectEl = select(el, all)
+
+    if (selectEl) {
+      if (all) {
+        selectEl.forEach(e => e.addEventListener(type, listener))
+      } else {
+        selectEl.addEventListener(type, listener)
+      }
+    }
+  }
+
+  /**
+   * Scrolls to an element with header offset
+   */
+  const scrollto = (el) => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }
+
+  /**
+   * Mobile nav toggle
+   */
+  on('click', '.mobile-nav-toggle', function(e) {
+    select('#navbar').classList.toggle('navbar-mobile')
+    this.classList.toggle('bi-list')
+    this.classList.toggle('bi-x')
+  })
+
+  /**
+   * Scrool with ofset on links with a class name .scrollto
+   */
+  on('click', '#navbar .nav-link', function(e) {
+    let section = select(this.hash)
+    if (section) {
+      e.preventDefault()
+
+      let navbar = select('#navbar')
+      let header = select('#header')
+      let sections = select('section', true)
+      let navlinks = select('#navbar .nav-link', true)
+
+      navlinks.forEach((item) => {
+        item.classList.remove('active')
+      })
+
+      this.classList.add('active')
+
+      if (navbar.classList.contains('navbar-mobile')) {
+        navbar.classList.remove('navbar-mobile')
+        let navbarToggle = select('.mobile-nav-toggle')
+        navbarToggle.classList.toggle('bi-list')
+        navbarToggle.classList.toggle('bi-x')
+      }
+
+      if (this.hash == '#header') {
+        header.classList.remove('header-top')
+        sections.forEach((item) => {
+          item.classList.remove('section-show')
+        })
+        return;
+      }
+
+      if (!header.classList.contains('header-top')) {
+        header.classList.add('header-top')
+        setTimeout(function() {
+          sections.forEach((item) => {
+            item.classList.remove('section-show')
+          })
+          section.classList.add('section-show')
+
+        }, 350);
+      } else {
+        sections.forEach((item) => {
+          item.classList.remove('section-show')
+        })
+        section.classList.add('section-show')
+      }
+
+      scrollto(this.hash)
+    }
+  }, true)
+
+  /**
+   * Activate/show sections on load with hash links
+   */
+  window.addEventListener('load', () => {
+    if (window.location.hash) {
+      let initial_nav = select(window.location.hash)
+
+      if (initial_nav) {
+        let header = select('#header')
+        let navlinks = select('#navbar .nav-link', true)
+
+        header.classList.add('header-top')
+
+        navlinks.forEach((item) => {
+          if (item.getAttribute('href') == window.location.hash) {
+            item.classList.add('active')
+          } else {
+            item.classList.remove('active')
+          }
+        })
+
+        setTimeout(function() {
+          initial_nav.classList.add('section-show')
+        }, 350);
+
+        scrollto(window.location.hash)
+      }
+    }
+  });
+
+  /**
+   * Skills animation
+   */
+  let skilsContent = select('.skills-content');
+  if (skilsContent) {
+    new Waypoint({
+      element: skilsContent,
+      offset: '80%',
+      handler: function(direction) {
+        let progress = select('.progress .progress-bar', true);
+        progress.forEach((el) => {
+          el.style.width = el.getAttribute('aria-valuenow') + '%'
+        });
+      }
+    })
+  }
+
+  /**
+   * Testimonials slider
+   */
+  new Swiper('.testimonials-slider', {
+    speed: 600,
+    loop: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false
+    },
+    slidesPerView: 'auto',
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'bullets',
+      clickable: true
+    },
+    breakpoints: {
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 20
+      },
+
+      1200: {
+        slidesPerView: 3,
+        spaceBetween: 20
+      }
+    }
+  });
+
+  /**
+   * Porfolio isotope and filter
+   */
+  window.addEventListener('load', () => {
+    let portfolioContainer = select('.portfolio-container');
+    if (portfolioContainer) {
+      let portfolioIsotope = new Isotope(portfolioContainer, {
+        itemSelector: '.portfolio-item',
+        layoutMode: 'fitRows'
+      });
+
+      let portfolioFilters = select('#portfolio-flters li', true);
+
+      on('click', '#portfolio-flters li', function(e) {
+        e.preventDefault();
+        portfolioFilters.forEach(function(el) {
+          el.classList.remove('filter-active');
+        });
+        this.classList.add('filter-active');
+
+        portfolioIsotope.arrange({
+          filter: this.getAttribute('data-filter')
+        });
+      }, true);
+    }
+
+  });
+
+  /**
+   * Initiate portfolio lightbox 
+   */
+  const portfolioLightbox = GLightbox({
+    selector: '.portfolio-lightbox'
+  });
+
+  /**
+   * Initiate portfolio details lightbox 
+   */
+  const portfolioDetailsLightbox = GLightbox({
+    selector: '.portfolio-details-lightbox',
+    width: '90%',
+    height: '90vh'
+  });
+
+  /**
+   * Portfolio details slider
+   */
+  new Swiper('.portfolio-details-slider', {
+    speed: 400,
+    loop: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'bullets',
+      clickable: true
+    }
+  });
+
+  /**
+   * Initiate Pure Counter 
+   */
+  new PureCounter();
+
+})()
+</script>
+
+
+</body>
+
+</html>
