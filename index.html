@@ -1,264 +1,230 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ashmeet Singh</title>
-  <link href="index.css" rel="stylesheet">
-  <link rel="icon" href="" type="image/x-icon">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/glightbox/1.2.2/css/glightbox.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/glightbox/1.2.2/js/glightbox.min.js"></script>
-
-<!-- Isotope -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/glightbox/1.2.2/css/glightbox.min.css">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <link rel="stylesheet" href="index.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:300,400,600i&display=swap" rel="stylesheet">
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css" rel="stylesheet">
-
-    <!-- Boxicons -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.0.7/css/boxicons.min.css" rel="stylesheet">
-
-    <!-- Glightbox -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/glightbox/1.0.8/css/glightbox.min.css" rel="stylesheet">
-
-    <!-- Remix Icon -->
-    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
-
-    <!-- Swiper -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/css/swiper.min.css" rel="stylesheet">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:300,400,600i&display=swap" rel="stylesheet">
-
-  <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:300,400,600i&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.0.7/css/boxicons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/glightbox/1.0.8/css/glightbox.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/css/swiper.min.css">
+  <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const bigBubble = document.getElementById('big-bubble');
+        const smallBubbles = createSmallBubbles(20);
+      
+        document.addEventListener('mousemove', function(e) {
+            moveBigBubble(e.pageX, e.pageY);
+            moveSmallBubbles(e.pageX, e.pageY);
+        });
+      
+        document.addEventListener('mouseout', function() {
+            hideSmallBubbles();
+        });
+      
+        document.addEventListener('click', function() {
+            changeBubbleColors();
+        });
+      
+        function createSmallBubbles(count) {
+            const bubbles = [];
+            for (let i = 0; i < count; i++) {
+                const bubble = createBubble();
+                bubbles.push(bubble);
+            }
+            return bubbles;
+        }
+      
+        function createBubble() {
+            const bubble = document.createElement('div');
+            bubble.className = 'small-bubble';
+            bubble.classList.add(getRandomSizeClass());
+            document.body.appendChild(bubble);
+            return bubble;
+        }
+      
+        function getRandomSizeClass() {
+            const sizes = ['small', 'medium', 'large'];
+            return sizes[Math.floor(Math.random() * sizes.length)];
+        }
+      
+        function changeBubbleColors() {
+            const bigColor = getRandomColor();
+            bigBubble.style.backgroundColor = bigColor;
+            smallBubbles.forEach(bubble => bubble.style.backgroundColor = getRandomColor());
+        }
+      
+        function getRandomColor() {
+            const rgb = () => Math.floor(Math.random() * 256);
+            return `rgba(${rgb()}, ${rgb()}, ${rgb()}, 0.8)`;
+        }
+      
+        function moveBigBubble(x, y) {
+            bigBubble.style.left = x - bigBubble.offsetWidth / 2 + 'px';
+            bigBubble.style.top = y - bigBubble.offsetHeight / 2 + 'px';
+        }
+      
+        function moveSmallBubbles(x, y) {
+            smallBubbles.forEach(bubble => {
+                const distance = Math.random() * 20 + 10;
+                const angle = Math.random() * 2 * Math.PI;
+                const offsetX = distance * Math.cos(angle);
+                const offsetY = distance * Math.sin(angle);
+                bubble.style.left = x + offsetX - bubble.offsetWidth / 2 + 'px';
+                bubble.style.top = y + offsetY - bubble.offsetHeight / 2 + 'px';
+                bubble.style.opacity = 1;
+            });
+        }
+      
+        function hideSmallBubbles() {
+            smallBubbles.forEach(bubble => bubble.style.opacity = 0);
+        }
+    });
+  </script>
   <style>
-  .infocardContainer #main, .infocardContainer #main img{
-  --background-color: red;
-  height: 200px;
-  width: 200px;
-  padding-right: 10px;
-  border-radius: 100%;
-  flex-shrink: 0;
-  object-fit: cover;
-}
-.infocardContainer #main img{
-
-  transition: none;
-  display: float;
-  position: relative;
-  border: 10px solid white;
-  margin: 0 0 0 0; padding: 0 0 0 0;
-}
-.infocardContainer #textbois {
-  position: relative;
-}
- .big-bubble {
-            width: 20px; /* Adjusted size */
-            height: 20px; /* Adjusted size */
-            background-color: rgba(255, 0, 0, 0.7); /* Red color for big bubble */
-            border-radius: 50%;
-            position: absolute;
-            pointer-events: none;
-            transition: transform 0.2s ease-out;
-            animation: boil 1s ease-in-out infinite alternate;
-            z-index: 999; /* Ensure the big bubble is on top */
-        }
-
-        .small-bubble {
-            background-color: rgba(0, 150, 255, 0.7); /* Blue color for small bubbles */
-            border-radius: 50%;
-            position: absolute;
-            pointer-events: none;
-            opacity: 0;
-            transition: opacity 0.2s ease-out, transform 0.2s ease-out;
-            animation: boil 1s ease-in-out infinite alternate;
-            z-index: 998; /* Ensure the small bubbles are on top of other content */
-        }
-
-        .small-bubble.small {
-            width: 5px;
-            height: 5px;
-        }
-
-        .small-bubble.medium {
-            width: 7px;
-            height: 7px;
-        }
-
-        .small-bubble.large {
-            width: 10px;
-            height: 10px;
-        }
-
-        @keyframes boil {
-            0% {
-                transform: scale(1);
-            }
-            100% {
-                transform: scale(1.1);
-            }
-        }
-    </style>
+    .infocardContainer #main, .infocardContainer #main img {
+      --background-color: red;
+      height: 200px;
+      width: 200px;
+      padding-right: 10px;
+      border-radius: 100%;
+      flex-shrink: 0;
+      object-fit: cover;
+    }
+    
+    .infocardContainer #main img {
+      height: 180px;
+      width: 180px;
+      transition: none;
+      display: float;
+      position: relative;
+      border: 10px solid white;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .infocardContainer #textbois {
+      position: relative;
+    }
+    
+    .big-bubble {
+      width: 20px;
+      height: 20px;
+      background-color: rgba(255, 0, 0, 0.7);
+      border-radius: 50%;
+      position: absolute;
+      pointer-events: none;
+      transition: transform 0.2s ease-out;
+      animation: boil 1s ease-in-out infinite alternate;
+      z-index: 999;
+    }
+    
+    .small-bubble {
+      background-color: rgba(0, 150, 255, 0.7);
+      border-radius: 50%;
+      position: absolute;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+      animation: boil 1s ease-in-out infinite alternate;
+      z-index: 998;
+    }
+    
+    .small-bubble.small {
+      width: 5px;
+      height: 5px;
+    }
+    
+    .small-bubble.medium {
+      width: 7px;
+      height: 7px;
+    }
+    
+    .small-bubble.large {
+      width: 10px;
+      height: 10px;
+    }
+    
+    @keyframes boil {
+      0% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(1.1);
+      }
+    }
+  </style>
 </head>
 
 <body>
+   <!-- Big bubble div -->
   <div id="big-bubble" class="big-bubble" style="overflow:hidden;"></div>
-    <script>
-        const bigBubble = document.getElementById('big-bubble');
-        const smallBubbles = [];
-        const numberOfSmallBubbles = 20;
-        let isMoving = false;
 
-        // Create small bubbles and append to body
-        for (let i = 0; i < numberOfSmallBubbles; i++) {
-            const smallBubble = document.createElement('div');
-            smallBubble.className = 'small-bubble';
-            // Randomly assign size class
-            const sizeClass = getRandomSizeClass();
-            smallBubble.classList.add(sizeClass);
-            document.body.appendChild(smallBubble);
-            smallBubbles.push(smallBubble);
-        }
-
-        function getRandomSizeClass() {
-            const randomNumber = Math.random();
-            if (randomNumber < 0.3) {
-                return 'small'; // 30% chance of small
-            } else if (randomNumber < 0.6) {
-                return 'medium'; // 30% chance of medium
-            } else {
-                return 'large'; // 40% chance of large
-            }
-        }
-
-        function changeBubbleColor() {
-            // Change color of big bubble
-            const newBigColor = getRandomBigColor();
-            bigBubble.style.backgroundColor = newBigColor;
-
-            // Change color of small bubbles
-            const newSmallColor = getRandomSmallColor();
-            smallBubbles.forEach(smallBubble => {
-                smallBubble.style.backgroundColor = newSmallColor;
-            });
-        }
-
-        function getRandomBigColor() {
-            const red = Math.floor(Math.random() * 256);
-            const green = Math.floor(Math.random() * 256);
-            const blue = Math.floor(Math.random() * 256);
-            return `rgba(${red}, ${green}, ${blue}, 0.8)`;
-        }
-
-        function getRandomSmallColor() {
-            const red = Math.floor(Math.random() * 256);
-            const green = Math.floor(Math.random() * 256);
-            const blue = Math.floor(Math.random() * 256);
-            return `rgba(${red}, ${green}, ${blue}, 0.8)`;
-        }
-
-        document.addEventListener('mousemove', function(e) {
-            isMoving = true;
-            // Position the big bubble at the cursor
-            bigBubble.style.left = e.pageX - bigBubble.offsetWidth / 2 + 'px';
-            bigBubble.style.top = e.pageY - bigBubble.offsetHeight / 2 + 'px';
-            updateBubblePositions(e.pageX, e.pageY);
-        });
-
-        document.addEventListener('mouseout', function() {
-            isMoving = false;
-            resetSmallBubbles();
-        });
-
-        document.addEventListener('click', function(e) {
-            changeBubbleColor();
-        });
-
-        function updateBubblePositions(cursorX, cursorY) {
-            // Position small bubbles near the cursor
-            smallBubbles.forEach((smallBubble, index) => {
-                // Randomize distance from the cursor
-                const distance = Math.random() * 20 + 10; // Random distance from 10 to 40 pixels
-
-                // Randomize angle around the cursor
-                const angle = Math.random() * 2 * Math.PI;
-
-                // Calculate position offsets
-                const offsetX = distance * Math.cos(angle);
-                const offsetY = distance * Math.sin(angle);
-
-                // Position small bubble near the cursor
-                smallBubble.style.left = cursorX + offsetX - smallBubble.offsetWidth / 2 + 'px';
-                smallBubble.style.top = cursorY + offsetY - smallBubble.offsetHeight / 2 + 'px';
-                smallBubble.style.opacity = 1;
-            });
-        }
-
-        function resetSmallBubbles() {
-            smallBubbles.forEach(smallBubble => {
-                smallBubble.style.opacity = 0;
-            });
-        }
-
-    </script>
+  <!-- Header section -->
   <header id="header">
     <div class="container">
-    <div class="infocardContainer">
-    <div id="main">
-      <img src="https://media.licdn.com/dms/image/D4D03AQHmRjgGSml2Ug/profile-displayphoto-shrink_400_400/0/1701275107192?e=1724284800&v=beta&t=-hoK4SnIadbJNGJOqhJ7Esf66PQXGN2DduPgkW69WDs"></img>
-    </div>
-  </div>
+      <!-- Profile picture -->
+      <div class="infocardContainer">
+        <div id="main">
+          <img src="https://media.licdn.com/dms/image/D4D03AQHmRjgGSml2Ug/profile-displayphoto-shrink_400_400/0/1701275107192?e=1724284800&v=beta&t=-hoK4SnIadbJNGJOqhJ7Esf66PQXGN2DduPgkW69WDs" alt="Ashmeet Singh's Profile Picture">
+        </div>
+      </div>
 
+      <!-- Name and description -->
+      <h1><a href="#">Ashmeet Singh</a></h1>
+      <h2>I'm a passionate <span>Data Analyst</span> from Indore, India</h2>
 
-      <h1><a href="">Ashmeet Singh</a></h1>
-      <h2>I'm a passionate <span>Data Analyst</span> from Indore <span>IND</span></h2>
-     <nav id="navbar" class="navbar">
-          <ul>
-              <li><a class="nav-link active" href="#header">Home</a></li>
-              <li><a class="nav-link" href="#about">About</a></li>
-              <li><a class="nav-link" href="#resume">Resume</a></li>
-              <li><a class="nav-link" href="#services">Projects</a></li>
-              <li><a class="nav-link" href="#portfolio">Portfolio</a></li>
-          </ul>
+      <!-- Main navigation -->
+      <nav class="navbar" id="navbar">
+        <ul>
+          <li><a class="nav-link active" href="#header">Home</a></li>
+          <li><a class="nav-link" href="#about">About</a></li>
+          <li><a class="nav-link" href="#resume">Resume</a></li>
+          <li><a class="nav-link" href="#services">Projects</a></li>
+          <li><a class="nav-link" href="#portfolio">Portfolio</a></li>
+        </ul>
       </nav>
 
-      <nav class="menu" id="navbar">
-          <input class="menu-toggler" type="checkbox">
-          <label for="menu-toggler"><strong>Menu</strong></label>
-          <ul>
-              <li class="menu-item">
-                  <a href="#services" class="nav-link">
-                      <i class="fas fa-file-alt"></i>
-                      <span class="tooltip">Documents</span>
-                  </a>
-              </li>
-              <li class="menu-item">
-                  <a href="#resume" class="nav-link">
-                      <i class="fas fa-file"></i>
-                      <span class="tooltip"></span>
-                  </a>
-              </li>
-              <li class="menu-item">
-                  <a href="#about" class="nav-link">
-                      <i class="fas fa-user"></i>
-                      <span class="tooltip" ></span>
-                  </a>
-              </li>
-              <li class="menu-item">
-                  <a href="#portfolio" class="nav-link">
-                      <i class="fas fa-chart-line"></i>
-                      <span class="tooltip"></span>
-                  </a>
-              </li>
-          </ul>
-      </nav><br><!-- .navbar -->
-       <script src="first.js"></script>
+      <!-- Menu toggler and additional navigation -->
+      <nav class="menu">
+        <input class="menu-toggler" type="checkbox" id="menu-toggler">
+        <label for="menu-toggler"><strong>Menu</strong></label>
+        <ul>
+          <li class="menu-item">
+            <a href="#services" class="nav-link">
+              <i class="fas fa-file-alt"></i>
+              <span class="tooltip">Documents</span>
+            </a>
+          </li>
+          <li class="menu-item">
+            <a href="#resume" class="nav-link">
+              <i class="fas fa-file"></i>
+              <span class="tooltip">Resume</span>
+            </a>
+          </li>
+          <li class="menu-item">
+            <a href="#about" class="nav-link">
+              <i class="fas fa-user"></i>
+              <span class="tooltip">About</span>
+            </a>
+          </li>
+          <li class="menu-item">
+            <a href="#portfolio" class="nav-link">
+              <i class="fas fa-chart-line"></i>
+              <span class="tooltip">Portfolio</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Social links -->
       <div class="social-links">
         <a href="+91 8349366631" class="twitter"><i class="bi bi-phone"></i></a>
         <a href="mailto:gaminggods0123@gmail.com" class="facebook"><i class="bi bi-envelope-fill"></i></a>
@@ -267,9 +233,9 @@
         <a href="https://public.tableau.com/app/profile/ashmeet5175/vizzes" class="linkedin"> <i class="fas fa-chart-pie"></i></a>
       </div>
 
-    </div>
+    </div><!-- End .container -->
   </header><!-- End Header -->
-
+      
   <!-- ======= About Section ======= -->
   <section id="about" class="about">
 
@@ -312,123 +278,128 @@
 
     </div><!-- End About Me -->
 
-    <!-- ======= Counts ======= -->
+        <!-- ======= Counts ======= -->
     <div class="counts container">
-
       <div class="row">
         <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+          <!-- Empty column for layout -->
         </div>
         <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
           <div class="count-box">
             <i class="bi bi-journal-richtext"></i>
-            <span data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="1" class="purecounter"></span>5+
-            <p>Projects</p>
+            <span class="purecounter" data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="1"></span>
+            <p><strong>5+</strong> Projects</p>
           </div>
         </div>
         <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
           <div class="count-box">
             <i class="bi bi-headset"></i>
-            <span data-purecounter-start="0" data-purecounter-end="24" data-purecounter-duration="1" class="purecounter"></span>24x7
-            <p>Hours Of Support</p>
+            <span class="purecounter" data-purecounter-start="0" data-purecounter-end="24" data-purecounter-duration="1"></span>
+            <p><strong>24x7</strong> Hours Of Support</p>
           </div>
         </div>
         <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
           <div class="count-box">
             <i class="bi bi-award"></i>
-            <span data-purecounter-start="0" data-purecounter-end="50" data-purecounter-duration="1" class="purecounter"></span>50+
-            <p>Awards</p>
+            <span class="purecounter" data-purecounter-start="0" data-purecounter-end="50" data-purecounter-duration="1"></span>
+            <p><strong>50+</strong> Awards</p>
           </div>
         </div>
-
       </div>
-
     </div><!-- End Counts -->
+    
 
     <!-- ======= Skills  ======= -->
-    <div class="skills container">
-
-      <div class="section-title">
-      <p>Skills</p>
-        <h2></h2>
-      </div>
-
-      <div class="row skills-content">
-
-        <div class="col-lg-6">
-
-          <div class="progress">
-            <span class="skill">Excel<i class="val"></i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
+  <div class="skills container">
+  
+    <div class="section-title">
+      <h2>Skills</h2>
+    </div>
+  
+    <div class="row skills-content">
+    
+      <div class="col-lg-6">
+      
+        <div class="progress">
+          <span class="skill"><i class="bi bi-file-excel"></i> Excel</span>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
           </div>
-
-          <div class="progress">
-            <span class="skill">Anaconda<i class="val"></i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
-          <div class="progress">
-            <span class="skill">LaTeX <i class="val"></i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-          <div class="progress">
-            <span class="skill">OS (Windows/Linux/MacOs/Android)<i class="val"></i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
-          <div class="progress">
-            <span class="skill">Canva<i class="val"></i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
         </div>
-
-        <div class="col-lg-6">
-          <div class="progress">
-            <span class="skill">Tableau<i class="val"></i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
+      
+        <div class="progress">
+          <span class="skill"><i class="bi bi-laptop"></i> Anaconda</span>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
           </div>
-          <div class="progress">
-            <span class="skill">Android Studio<i class="val"></i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-          <div class="progress">
-            <span class="skill">Scala<i class="val"></i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-          <div class="progress">
-            <span class="skill">Apache Spark<i class="val"></i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-          <div class="progress">
-            <span class="skill">Hadoop<i class="val"></i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
         </div>
-
+      
+        <div class="progress">
+          <span class="skill"><i class="bi bi-file-earmark-pdf"></i> LaTeX</span>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+      
+        <div class="progress">
+          <span class="skill"><i class="bi bi-laptop"></i> OS (Windows/Linux/MacOS/Android)</span>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+      
+        <div class="progress">
+          <span class="skill"><i class="bi bi-vector-pen"></i> Canva</span>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+      
       </div>
-
-    </div><!-- End Skills -->
+    
+      <div class="col-lg-6">
+      
+        <div class="progress">
+          <span class="skill"><i class="bi bi-graph-up"></i> Tableau</span>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+      
+        <div class="progress">
+          <span class="skill"><i class="bi bi-laptop"></i> Android Studio</span>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+      
+        <div class="progress">
+          <span class="skill"><i class="bi bi-laptop"></i> Scala</span>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+      
+        <div class="progress">
+          <span class="skill"><i class="bi bi-laptop"></i> Apache Spark</span>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+      
+        <div class="progress">
+          <span class="skill"><i class="bi bi-laptop"></i> Hadoop</span>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+      
+      </div>
+    
+    </div>
+  
+  </div><!-- End Skills -->
+  
     <!-- ======= Testimonials ======= -->
     <div class="testimonials container">
 
@@ -750,81 +721,6 @@
 
     </div>
   </section><!-- End Portfolio Section -->
-
-  <!-- ======= Contact Section ======= -->
-  <section id="contact" class="contact">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>Contact</h2>
-        <p>Contact Me</p>
-      </div>
-
-      <div class="row mt-2">
-
-        <div class="col-md-6 d-flex align-items-stretch">
-          <div class="info-box">
-            <i class="bx bx-map"></i>
-            <h3>My Address</h3>
-            <p>A108 Adam Street, New York, NY 535022</p>
-          </div>
-        </div>
-
-        <div class="col-md-6 mt-4 mt-md-0 d-flex align-items-stretch">
-          <div class="info-box">
-            <i class="bx bx-share-alt"></i>
-            <h3>Social Profiles</h3>
-            <div class="social-links">
-              <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-              <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-              <a href="#" class="google-plus"><i class="bi bi-skype"></i></a>
-              <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 mt-4 d-flex align-items-stretch">
-          <div class="info-box">
-            <i class="bx bx-envelope"></i>
-            <h3>Email Me</h3>
-            <p>contact@example.com</p>
-          </div>
-        </div>
-        <div class="col-md-6 mt-4 d-flex align-items-stretch">
-          <div class="info-box">
-            <i class="bx bx-phone-call"></i>
-            <h3>Call Me</h3>
-            <p>+1 5589 55488 55</p>
-          </div>
-        </div>
-      </div>
-
-      <form action="forms/contact.php" method="post" role="form" class="php-email-form mt-4">
-        <div class="row">
-          <div class="col-md-6 form-group">
-            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-          </div>
-          <div class="col-md-6 form-group mt-3 mt-md-0">
-            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-          </div>
-        </div>
-        <div class="form-group mt-3">
-          <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-        </div>
-        <div class="form-group mt-3">
-          <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-        </div>
-        <div class="my-3">
-          <div class="loading">Loading</div>
-          <div class="error-message"></div>
-          <div class="sent-message">Your message has been sent. Thank you!</div>
-        </div>
-        <div class="text-center"><button type="submit">Send Message</button></div>
-      </form>
-
-    </div>
-  </section><!-- End Contact Section -->
 
   <!-- Vendor JS Files -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
