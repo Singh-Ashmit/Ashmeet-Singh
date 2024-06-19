@@ -753,7 +753,7 @@ section .container {
   margin: -40px 0 0 40px;
   position: relative;
   z-index: 2;
-  border: 6px solid rgba(255, 255, 255, 0.12);
+  border: 6px solid #18d26e;
 }
 
 .testimonials .testimonial-item h3 {
@@ -771,7 +771,7 @@ section .container {
 
 .testimonials .testimonial-item .quote-icon-left,
 .testimonials .testimonial-item .quote-icon-right {
-  color: rgba(255, 255, 255, 0.25);
+  color: rgb(0, 0, 0);
   font-size: 26px;
 }
 
@@ -792,9 +792,10 @@ section .container {
   font-style: italic;
   margin: 0 15px 0 15px;
   padding: 20px 20px 60px 20px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgb(254, 254, 254);
   position: relative;
   border-radius: 6px;
+  color:black;
   position: relative;
   z-index: 1;
 }
@@ -808,12 +809,13 @@ section .container {
   width: 12px;
   height: 12px;
   opacity: 1;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(0, 0, 0, 0);
 }
 
 .testimonials .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: #18d26e;
+  background-color: #0acbd2;
 }
+
 
 /*--------------------------------------------------------------
 # Resume
