@@ -222,7 +222,6 @@ h6 {
   font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-weight: 400;
-  color: rgba(252, 252, 252, 0.7);
   white-space: nowrap;
   transition: 0.3s;
 }
@@ -233,6 +232,28 @@ h6 {
   line-height: 0;
   margin-left: 5px;
 }
+.navbar a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  position: relative;
+}
+
+.navbar a::after {
+  content: "";
+  background: white;
+  mix-blend-mode: exclusion;
+  width: calc(100% + 20px);
+  height: 0;
+  position: absolute;
+  bottom: -4px;
+  left: -10px;
+  transition: all .3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+.navbar a:hover::after {
+  height: calc(100% + 8px)
+}
 
 .navbar a:before {
   content: "";
@@ -241,7 +262,6 @@ h6 {
   height: 2px;
   bottom: -4px;
   left: 0;
-  background-color: #8e18d2;
   visibility: hidden;
   transition: all 0.3s ease-in-out;
 }
@@ -257,9 +277,8 @@ h6 {
 .navbar .active,
 .navbar .active:focus,
 .navbar li:hover>a {
-  color: #ea0bc1;
+  color: #0df7ff;
 }
-
 
 @media (max-width: 991px) {
   .navbar {
