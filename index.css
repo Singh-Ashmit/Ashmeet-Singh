@@ -3,6 +3,13 @@ body {
   color: #ffffff;
   position: relative;
   background: transparent;
+  user-select: none; /* Disable text selection */
+  -webkit-user-drag: none; /* Disable image drag */
+  -webkit-user-select: none; /* Disable text selection for older Safari */
+  -moz-user-select: none; /* Disable text selection for older Firefox */
+  -ms-user-select: none; /* Disable text selection for older IE/Edge */
+  pointer-events: none; /* Disable pointer events (including click) */
+  -webkit-touch-callout: none; /
 }
 
 body::before {
