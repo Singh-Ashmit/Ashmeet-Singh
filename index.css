@@ -617,6 +617,7 @@ section {
   opacity: 0;
   transition: ease-in-out 0.4s;
   z-index: 2;
+  margin-top :100px;
 }
 
 section.section-show {
