@@ -555,7 +555,7 @@ h6 {
   width: inherit;
   height: inherit;
   line-height: 50px;
-  color: rgba(0, 0, 0, 0.7);
+  color: rgb(66, 136, 9);
   background: rgba(8, 8, 154, 0.7);
   border-radius: 50%;
   text-align: center;
@@ -563,7 +563,7 @@ h6 {
   font-size: 20px;
   pointer-events: none;
   transition: 0.2s;
-  background: rgb(24, 218, 252);
+  background: rgb(255, 255, 255);
 }
 
 .menu-item a:hover {
