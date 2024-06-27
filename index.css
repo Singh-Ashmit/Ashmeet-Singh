@@ -978,7 +978,7 @@ section .container {
       font-size: 20px;
     }
     .project:hover {
-      background-color: #555;
+      background-color: #ffffff;
       transform: scale(1.05);
     }
     @media (max-width: 600px) {
