@@ -266,7 +266,7 @@ h6 {
 
 @media (max-width: 800px) {
   #header.header-top {
-    height: 200px;
+    height: 130px;
   }
 
   #header.header-top h1 {
@@ -539,7 +539,7 @@ h6 {
 .menu-item {
   position: absolute;
   display: block;
-  top: 160px;
+  top: 170px;
   bottom: 0;
   left: 0;
   right: 0;
