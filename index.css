@@ -962,23 +962,45 @@ section .container {
 .services{
   color:white;
 }
-.project {
-  color: #ffffff;
-  /* Bootstrap's primary link color */
-  text-decoration: none;
-  font-size: large;
-  font-style: italic;
-  font-weight: bolder;
-  cursor: pointer;
-  transition: color 0.2s ease-in-out;
-}
-
-.project:hover {
-  color: #1cdc55;
-  /* Darker shade of blue for hover effect */
-  text-decoration: underline;
-  /* Add underline on hover */
-}
+ .project {
+      text-decoration: none;
+      color: #fff;
+      background-color: #333;
+      padding: 10px 20px;
+      border-radius: 5px;
+      display: inline-flex;
+      align-items: center;
+      font-size: 16px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    .project i {
+      margin-right: 8px;
+      font-size: 20px;
+    }
+    .project:hover {
+      background-color: #555;
+      transform: scale(1.05);
+    }
+    @media (max-width: 600px) {
+      .project {
+        font-size: 14px;
+        padding: 8px 16px;
+      }
+      .project i {
+        font-size: 18px;
+        margin-right: 6px;
+      }
+    }
+    @media (max-width: 400px) {
+      .project {
+        font-size: 12px;
+        padding: 6px 12px;
+      }
+      .project i {
+        font-size: 16px;
+        margin-right: 4px;
+      }
+    }
 .services .icon-box {
   text-align: center;
   background: rgba(255, 255, 255, 0.42);
