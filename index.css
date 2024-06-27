@@ -1063,16 +1063,17 @@ section .container {
 }
 
 .services .icon-box:hover .icon {
-  background: #fff;
+  background: #eb0583;
 }
 
 .services .icon-box:hover .icon i {
-  color: #18d26e;
+  color: #e5e5e5;
 }
 
 .services .icon-box:hover .icon::before {
-  background: #35e888;
+  background: #ebcc05;
 }
+
 
 .services .icon-box:hover h4 ,
 .services .icon-box:hover p {
