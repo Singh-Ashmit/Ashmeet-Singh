@@ -451,31 +451,21 @@ h6 {
 .menu-toggler:checked~ul .menu-item {
   opacity: 1;
 }
-
 .menu-toggler:checked~ul .menu-item:nth-child(1) {
-  transform: rotate(0deg) translate(-80px);
+  transform: rotate(30deg) translate(-170px);
 }
 
 .menu-toggler:checked~ul .menu-item:nth-child(2) {
-  transform: rotate(60deg) translateX(-70px);
+  transform: rotate(60deg) translateX(-100px);
 }
 
 .menu-toggler:checked~ul .menu-item:nth-child(3) {
-  transform: rotate(120deg) translateX(-70px);
+  transform: rotate(120deg) translateX(-100px);
 }
 
 .menu-toggler:checked~ul .menu-item:nth-child(4) {
-  transform: rotate(180deg) translateX(-70px);
+  transform: rotate(150deg) translateX(-170px);
 }
-
-.menu-toggler:checked~ul .menu-item:nth-child(5) {
-  transform: rotate(240deg) translateX(-70px);
-}
-
-.menu-toggler:checked~ul .menu-item:nth-child(6) {
-  transform: rotate(300deg) translateX(-70px);
-}
-
 .menu-toggler:checked~ul .menu-item a {
   pointer-events: auto;
 }
