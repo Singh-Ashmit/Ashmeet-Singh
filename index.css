@@ -513,27 +513,19 @@ h6 {
 }
 
 .menu-item:nth-child(1) a {
-  transform: rotate(10deg);
+  transform: rotate(-30deg);
 }
 
 .menu-item:nth-child(2) a {
-  transform: rotate(-80deg);
+  transform: rotate(-60deg);
 }
 
 .menu-item:nth-child(3) a {
-  transform: rotate(-110deg);
+  transform: rotate(-120deg);
 }
 
 .menu-item:nth-child(4) a {
-  transform: rotate(-210deg);
-}
-
-.menu-item:nth-child(5) a {
-  transform: rotate(-240deg);
-}
-
-.menu-item:nth-child(6) a {
-  transform: rotate(-300deg);
+  transform: rotate(-150deg);
 }
 
 .menu-item {
