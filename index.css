@@ -60,6 +60,7 @@ h6 {
   align-items: center;
   z-index: 997;
   overflow-y: auto;
+  font-family: "Playwrite DE Grund", cursive;
 }
   .infocardContainer {
           display: flex;
@@ -149,6 +150,7 @@ h6 {
   transition: ease-in-out 0.3s;
   text-align: center;
   justify-content: center;
+  font-family: "Playwrite DE Grund", cursive;
 }
 
 #header h1 {
@@ -603,6 +605,7 @@ section {
   top: 140px;
   bottom: 100%;
   opacity: 0;
+  color :white;
   transition: ease-in-out 0.4s;
   z-index: 2;
   margin-top :100px;
@@ -616,7 +619,7 @@ section.section-show {
 }
 
 section .container {
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(255, 255, 255, 0);
   padding: 30px;
 }
 
@@ -979,6 +982,7 @@ section .container {
     }
     .project:hover {
       background-color: #ffffff;
+      box-shadow: rgba(46, 240, 221, 0.4) 5px 5px, rgba(153, 240, 46, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(219, 12, 12, 0.1) 20px 20px, rgba(231, 235, 4, 0.05) 25px 25px;
       transform: scale(1.05);
     }
     @media (max-width: 600px) {
@@ -1023,7 +1027,7 @@ section .container {
 }
 
 .services .icon-box .icon i {
-  color: #fff;
+  color: #ffffff;
   font-size: 28px;
 }
 
@@ -1058,8 +1062,9 @@ section .container {
 }
 
 .services .icon-box:hover {
-  background: #18b6d2b5;
+  background: #000000f9;
   border-color: #d218b6;
+  box-shadow: rgb(85, 91, 255) 0px 0px 0px 3px, rgb(31, 193, 27) 0px 0px 0px 6px, rgb(255, 217, 19) 0px 0px 0px 9px, rgb(255, 156, 85) 0px 0px 0px 12px, rgb(255, 85, 85) 0px 0px 0px 15px;
 }
 
 .services .icon-box:hover .icon {
