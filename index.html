@@ -762,7 +762,7 @@
       return document.querySelector(el);
     }
   };
-
+  
   /**
    * Easy event listener function
    */
@@ -777,7 +777,7 @@
       }
     }
   };
-
+  
   /**
    * Scrolls to an element with header offset
    */
@@ -787,7 +787,12 @@
       behavior: 'smooth'
     });
   };
-
+  const changeHeaderBackground = () => {
+    const header = select('#header');
+    if (header) {
+      header.style.backgroundColor = 'black';
+    }
+  };
   /**
    * Mobile nav toggle
    */
@@ -839,6 +844,7 @@
           });
           section.classList.add('section-show');
           toggleImage(section);
+          changeHeaderBackground(); // Call function to change header background
         }, 350);
       } else {
         sections.forEach((item) => {
@@ -846,6 +852,7 @@
         });
         section.classList.add('section-show');
         toggleImage(section);
+        changeHeaderBackground(); // Call function to change header background
       }
 
       scrollto(this.hash);
@@ -1008,7 +1015,6 @@
 
 })();
 </script>
-
 
 
 </body>
