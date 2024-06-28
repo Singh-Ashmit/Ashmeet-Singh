@@ -150,7 +150,6 @@ h6 {
   transition: ease-in-out 0.3s;
   text-align: center;
   justify-content: center;
-  font-family: "Playwrite DE Grund", cursive;
 }
 
 #header h1 {
@@ -159,7 +158,7 @@ h6 {
   padding: 0;
   line-height: 1;
   font-weight: 700;
-  font-family: "Poppins", sans-serif;
+  font-family: "Playwrite DE Grund", cursive;
 }
 
 #header h1 a,
@@ -1010,7 +1009,7 @@ section .container {
   background: rgba(255, 255, 255, 0.42);
   padding: 80px 20px;
   transition: all ease-in-out 0.3s;
-  border-radius: 5px;
+  border-radius: 15px;
 }
 
 .services .icon-box .icon {
