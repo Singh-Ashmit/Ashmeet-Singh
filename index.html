@@ -176,9 +176,30 @@
       <!-- Profile picture -->
       <div class="infocardContainer" id="infocardContainer">
         <div id="main">
-          <img src="https://media.licdn.com/dms/image/D4D03AQHmRjgGSml2Ug/profile-displayphoto-shrink_400_400/0/1701275107192?e=1724284800&v=beta&t=-hoK4SnIadbJNGJOqhJ7Esf66PQXGN2DduPgkW69WDs" alt="Ashmeet Singh's Profile Picture">
+          <img id="profilePic" src="https://media.licdn.com/dms/image/D4D03AQHmRjgGSml2Ug/profile-displayphoto-shrink_400_400/0/1701275107192?e=1724284800&v=beta&t=-hoK4SnIadbJNGJOqhJ7Esf66PQXGN2DduPgkW69WDs" alt="Ashmeet Singh's Profile Picture" onclick="changeBackgroundImage()">
         </div>
       </div>
+      <script>
+          function changeBackgroundImage() {
+              // Get a reference to the body element
+              const body = document.body;
+          
+              // Define an array of possible background images
+              const backgroundImages = [
+                  'https://pouch.jumpshare.com/preview/AXzKJ5SiXYjatNxWIx9esY_1bj5spYiMW_zRLcAtOcV7jjRgLobeiBEQDkFBDIsK-o4ukN2G1h4Jg-6BOisEYCU6Rlc-WULti5oBk-Ze1qo',
+                  'https://pouch.jumpshare.com/preview/n3eDGqS-7lgds5J9pEizcYeq7BNUsYHLOQlvyAx9Wq06GpUvWbYzdu25lXhrdXqrrXfVWWPHTKgAhuP3ZDwesVFOgu58nFS6IH_83y1tC0M',
+                  'https://images.wallpaperscraft.com/image/single/background_texture_dark_50347_1920x1080.jpg',
+                  
+                  // Add more image URLs as needed
+              ];
+          
+              // Choose a random index for the background image array
+              const randomIndex = Math.floor(Math.random() * backgroundImages.length);
+          
+              // Set the background image of the body
+              body.style.backgroundImage = `url('${backgroundImages[randomIndex]}')`;
+          }
+      </script>
 
       <!-- Name and description -->
       <h1><a href="https://singh-ashmit.github.io/Ashmeet-Singh/">Ashmeet Singh</a></h1>
